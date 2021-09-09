@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FigureSkatingApp</string>
+    <string name="tab1_title">Men SP</string>
+    <string name="tab2_title">Men FS</string>
+    <string name="tab3_title">Men Final</string>
+    <string name="tab4_title">Women SP</string>
+    <string name="tab5_title">Women FS</string>
+    <string name="tab6_title">Women Final</string>
+    <!--
+    <string name="tab6_title">Women\nFinal</string>
+    -->
+</resources>
