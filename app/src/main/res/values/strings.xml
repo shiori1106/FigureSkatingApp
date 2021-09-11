@@ -9,4 +9,12 @@
     <!--
     <string name="tab6_title">Women\nFinal</string>
     -->
+
+    <string name="URL_ISU_statistics">https://www.isu.org/figure-skating/entries-results/statistics</string>
+    <string name="URL_ISU_results">https://www.isu.org/figure-skating/entries-results/fsk-results</string>
+    <string name="URL_ISU_calendar">https://www.isu.org/figure-skating/events/figure-skating-calendar</string>
+
+    <string name="URL_JSF_results">https://www.jsfresults.com/index.htm</string>
+    <string name="URL_JSF_player">https://www.skatingjapan.or.jp/figure/player/</string>
+
 </resources>

@@ -12,6 +12,9 @@ import io.realm.RealmConfiguration
 import io.realm.Sort
 import io.realm.kotlin.createObject
 import kotlinx.android.synthetic.main.fragment1.*
+import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStreamReader
 import java.util.*
 
 class Fragment1: Fragment() {
@@ -46,10 +49,18 @@ class Fragment1: Fragment() {
         Realm.init(requireContext())
 
         // csvからインポート
-        //val config = RealmConfiguration.Builder().assetFile("sampleData.realm").build()
+        //val config = RealmConfiguration.Builder().assetFile("sampleData.realm").deleteRealmIfMigrationNeeded().build()
         //Realm.setDefaultConfiguration(config)
 
         mRealm = Realm.getDefaultInstance()
+
+        // Realmのデータを全て消す
+        //deleteAll()
+
+        // CSVのデータをRealmに格納
+        //readCSV("resultData.csv")
+
+
 
         // Realmデータベースから、シーズンのみ重複なしで取得
         /*val seasonRealmResults = mRealm.where(ResultData::class.java)
@@ -72,10 +83,10 @@ class Fragment1: Fragment() {
 
         seasonAdapter.seasonList = seasonRealmList_sorted
 
-        // realmの中身を表示
+        /*// realmの中身を表示
         for (j in 0..seasonRealmResults.size-1){
             Log.d("kotlintest_realm",seasonRealmResults[j]!!.season + seasonRealmResults[j]!!.competition )
-        }
+        }*/
 
         //seasonAdapter.seasonList = mRealm.copyFromRealm(seasonRealmResults)
     //Log.d("kotlintest",seasonList.toString())
@@ -88,24 +99,24 @@ class Fragment1: Fragment() {
                 .deleteAllFromRealm()
         }*/
 
-
         /*// サンプルデータ追加
         mRealm.executeTransaction {
             //val addData = it.createObject(ResultData::class.java, UUID.randomUUID().toString())
-            val addData = it.createObject(ResultData::class.java,1)
+            val addData = it.createObject(ResultData::class.java, 1)
+            //val addData = it.createObject(ResultData::class.java,1)
             //addData.id = 1
             addData.type = "SP"
             addData.rank = 1
-            addData.name = "Yuzuru Hanyu"
-            addData.country = "JPN"
-            addData.score = 100.45
+            addData.name = "Nathan Chen"//"Yuzuru Hanyu"
+            addData.country = "USA" //"JPN"
+            addData.score = 109.34 //100.45
             addData.startDate = "2017/3/30"
             addData.competition = "World Championships"
             addData.url = "http://www.isuresults.com/results/season2122/jgpsvk2021/"
             addData.season = "2020-2021"
             addData.gender = "M"
-
         }*/
+
 
         // これいらない？
         /*val addData = ResultData()
@@ -117,11 +128,61 @@ class Fragment1: Fragment() {
         */
 
 
-    }
+        }
+
+
 
 
     override fun onDestroy() {
         super.onDestroy()
         mRealm.close()
     }
+
+    /*
+    fun deleteAll() {
+        mRealm.executeTransaction { realm ->
+            realm.where(ResultData::class.java)
+                    .findAll()
+                    .deleteAllFromRealm()
+        }
+    }
+
+    fun readCSV(filename: String){
+        try {
+            val file = resources.assets.open(filename)
+            val fileReader = BufferedReader(InputStreamReader(file))
+            var i: Int = 0
+            fileReader.forEachLine {
+                if (it.isNotBlank()){
+                    if (i == 0){
+                        // 1行目だけ別の配列に読み取る
+                        // column = it.split(",").toTypedArray()
+                    } else {
+                        // 2行目以降
+                        var line = it.split(",").toTypedArray()
+
+                        mRealm.executeTransaction {
+                            val addData = it.createObject(ResultData::class.java, UUID.randomUUID().toString())
+                            addData.type = line[0]
+                            addData.rank = line[1].toInt()
+                            addData.name = line[2]
+                            addData.country = line[3]
+                            addData.score = line[4].toDouble()
+                            addData.startDate = line[5]
+                            addData.competition = line[6]
+                            addData.url = line[7]
+                            addData.season = line[8]
+                            addData.gender = line[9]
+                        }
+
+                    }
+
+                }
+                i++;
+            }
+        } catch (e: IOException){
+            // 例外処理
+            print(e)
+        }
+    }*/
 }

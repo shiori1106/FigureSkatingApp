@@ -11,16 +11,17 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
-class SeasonDetailAdapter(private val season: String, context: Context): RecyclerView.Adapter<SeasonDetailAdapter.SeasonDetailViewHolder>() {
+class SeasonDetailAdapter(private val season: String, context: Context) : RecyclerView.Adapter<SeasonDetailAdapter.SeasonDetailViewHolder>() {
 
-    var seasonDetailList = mutableListOf("World Championships","Grand Prix Final")
-    private val seasonDetailAdapter by lazy {SeasonDetailAdapter(season, context)}
+    //var seasonDetailList = mutableListOf("Olympic Games","World Championships", "World Junior Championships", "Grand Prix Final", "Junior Grand Prix Final", "European Championships", "Four Continents Championships")
+    var seasonDetailList = mutableListOf<String>()
+    private val seasonDetailAdapter by lazy { SeasonDetailAdapter(season, context) }
     //var seasonDetailList = mutableListOf<String>()
 
     // 新しいViewHolderインスタンスを生成
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SeasonDetailAdapter.SeasonDetailViewHolder {
         return SeasonDetailAdapter.SeasonDetailViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.recycler_season_detail, parent, false)
+                LayoutInflater.from(parent.context).inflate(R.layout.recycler_season_detail, parent, false)
         )
     }
 
@@ -29,14 +30,43 @@ class SeasonDetailAdapter(private val season: String, context: Context): Recycle
         val item_competition = seasonDetailList.get(position)
         holder.text_competition.text = item_competition.toString()
 
+        // 略称に変換
+        var item_competition_short = ""
+
+        when (item_competition){
+            "World Championships" -> {
+                item_competition_short = "WORLD"
+            }
+            "World Junior Championships" -> {
+                item_competition_short = "Jr WORLD"
+            }
+
+            "Grand Prix Final" -> {
+                item_competition_short = "GPF"
+            }
+
+            "Junior Grand Prix Final" -> {
+                item_competition_short = "JGPF"
+            }
+
+            "European Championships" -> {
+                item_competition_short = "EURO"
+            }
+
+            "Four Continents Championships" -> {
+                item_competition_short = "4CC"
+            }
+
+        }
+
 
         // クリック時の処理
         holder.card_view_season_detail.setOnClickListener {
             val intent = Intent(it.context, ResultActivity::class.java)
-            intent.putExtra("COMPETITION", holder.text_competition.text.toString())
+            intent.putExtra("COMPETITION", item_competition_short)
             intent.putExtra("SEASON", season)
             it.context.startActivity(intent)
-            Log.d("kotlintest",holder.text_competition.text.toString())
+            Log.d("kotlintest", holder.text_competition.text.toString())
         }
 
 
@@ -44,15 +74,14 @@ class SeasonDetailAdapter(private val season: String, context: Context): Recycle
         //val item_season = intent.getStringExtra("SEASON").toString()
 
 
-
         holder.image_webView.setOnClickListener {
             // seasonと、選択されたcompetitionからurlを抽出
-            val resultURL = ResultData.searchURL(season, item_competition)!!.url
+            val resultURL = ResultData.searchURL(season, item_competition_short)!!.url
 
-            Log.d("kotlintest",season + "&" + holder.text_competition.text.toString())
-            Log.d("kotlintest",resultURL)
+            Log.d("kotlintest", season + "&" + holder.text_competition.text.toString())
+            Log.d("kotlintest", resultURL)
             val intent = Intent(it.context, WebViewActivity::class.java)
-            intent.putExtra("URL",resultURL)
+            intent.putExtra("URL", resultURL)
             it.context.startActivity(intent)
         }
 
@@ -61,9 +90,10 @@ class SeasonDetailAdapter(private val season: String, context: Context): Recycle
 
     override fun getItemCount(): Int {
         return seasonDetailList.size
+        Log.d("kotlintest", seasonDetailList.size.toString())
     }
 
-    class SeasonDetailViewHolder(view: View):RecyclerView.ViewHolder(view){
+    class SeasonDetailViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         // レイアウトファイルからそれぞれ代入
         val card_view_season_detail: CardView = view.findViewById(R.id.card_view_season_detail)

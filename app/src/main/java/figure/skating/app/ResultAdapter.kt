@@ -1,12 +1,16 @@
 package figure.skating.app
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.recycler_result.*
 
 class ResultAdapter(private val context: Context): RecyclerView.Adapter<ResultAdapter.ResultViewHolder>()  {
 
@@ -24,7 +28,16 @@ class ResultAdapter(private val context: Context): RecyclerView.Adapter<ResultAd
             text_rank.text = item.rank.toString() + "."
             text_name.text = item.name
             text_country.text = "(" + item.country + ")"
-            text_score.text = item.score.toString()
+            text_score.text = String.format("%,.2f", item.score) //item.score.toString()
+        }
+
+        // クリック時の処理
+        holder.image_video.setOnClickListener {
+            val intent = Intent(Intent.ACTION_SEARCH)
+            intent.setPackage("com.google.android.youtube")
+            intent.putExtra("query",item.name + " " + item.competition + " " + item.type)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            it.context.startActivity(intent)
         }
     }
 
@@ -40,5 +53,6 @@ class ResultAdapter(private val context: Context): RecyclerView.Adapter<ResultAd
         val text_name: TextView = view.findViewById(R.id.text_name)
         val text_country: TextView = view.findViewById(R.id.text_country)
         val text_score: TextView = view.findViewById(R.id.text_score)
+        val image_video: ImageView = view.findViewById(R.id.image_video)
     }
 }

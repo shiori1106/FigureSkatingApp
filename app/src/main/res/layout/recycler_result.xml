@@ -6,12 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:layout_gravity="center"
-    android:layout_marginBottom="8dp"
     android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    app:cardBackgroundColor="@color/clean"
-    android:foreground="?android:attr/selectableItemBackground"
-    android:clickable="true">
+    android:layout_marginRight="16dp">
+    <!--app:cardBackgroundColor="@color/clean">-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/clean"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -35,7 +37,7 @@
             android:layout_gravity="center_vertical"
             android:paddingLeft="20dp"
             android:text="1."
-            android:textSize="16sp"
+            android:textSize="15sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
@@ -47,7 +49,7 @@
             android:layout_gravity="center_vertical"
             android:paddingLeft="20dp"
             android:text="Yuzuru Hanyu"
-            android:textSize="16sp"
+            android:textSize="15sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/text_rank"/>
@@ -59,7 +61,7 @@
             android:layout_gravity="center_vertical"
             android:paddingLeft="10dp"
             android:text="(JPN)"
-            android:textSize="16sp"
+            android:textSize="15sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/text_name"/>
@@ -71,7 +73,7 @@
             android:layout_gravity="center_vertical"
             android:paddingRight="20dp"
             android:text="111.11"
-            android:textSize="16sp"
+            android:textSize="15sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/image_video"/>
@@ -86,6 +88,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+        <!--
         <TextView
             android:id="@+id/border"
             android:layout_width="match_parent"
@@ -93,6 +96,7 @@
             android:background="@color/black"
             app:layout_constraintTop_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
+        -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

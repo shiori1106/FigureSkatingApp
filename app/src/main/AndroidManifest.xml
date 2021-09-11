@@ -13,7 +13,8 @@
         android:theme="@style/Theme.FigureSkatingApp"
         android:usesCleartextTraffic="true">
         <activity android:name=".YoutubeViewActivity"></activity>
-        <activity android:name=".ResultActivity" />
+        <activity android:name=".ResultActivity"/>
+            <!--android:parentActivityName=".SeasonDetailActivity"/>-->
         <activity android:name=".WebViewActivity" />
         <activity android:name=".SeasonDetailActivity" />
         <activity android:name=".MainActivity">

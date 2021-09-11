@@ -34,7 +34,7 @@ class SeasonAdapter(private val context: Context): RecyclerView.Adapter<SeasonAd
             val intent = Intent(context, SeasonDetailActivity::class.java)
             intent.putExtra("SEASON", holder.text_season.text.toString())
             context.startActivity(intent)
-            Log.d("kotlintest",holder.text_season.text.toString())
+
         }
     }
 

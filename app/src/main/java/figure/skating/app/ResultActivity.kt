@@ -10,13 +10,18 @@ class ResultActivity : AppCompatActivity() {
 
     private val viewPagerAdapter by lazy {ViewPageAdapter(this)}
 
+    // SeasonDetailActivityからCOMPETITION、SEASONをそれぞれ受け取るための変数を初期化
+    var competitonFromSeasonDetail = ""
+    var seasonFromSeasonDetail = ""
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
         // SeasonDetailActivityからCOMPETITION、SEASONをそれぞれ受け取る
-        val competitonFromSeasonDetail = intent.getStringExtra("COMPETITION")
-        val seasonFromSeasonDetail = intent.getStringExtra("SEASON")
+        competitonFromSeasonDetail = intent.getStringExtra("COMPETITION")!!
+        seasonFromSeasonDetail = intent.getStringExtra("SEASON")!!
 
         // タイトルバーの設定
         title = competitonFromSeasonDetail  + " / " + seasonFromSeasonDetail

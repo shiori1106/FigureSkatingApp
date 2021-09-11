@@ -11,7 +11,7 @@ import java.util.*
 open class ResultData: RealmObject(), Serializable {
     @PrimaryKey
     //var id: String = UUID.randomUUID().toString()
-    var id: Int = 0
+    var id: String = ""
     var type: String = "" // SP, FS, FINAL
     var rank: Int = 0
     var name: String = ""
@@ -19,11 +19,23 @@ open class ResultData: RealmObject(), Serializable {
     var score: Double = 0.00
     var startDate: String = ""
     var competition: String = ""
+    var competition_short: String = ""
     var url: String = ""
     var season: String = ""
     var gender: String = ""
 
     companion object{
+
+        // 試合名、シーズン名で検索
+        fun findBy(competition_short: String, season: String): ResultData? =
+                Realm.getDefaultInstance().use{ realm ->
+                    realm.where(ResultData::class.java)
+                            .equalTo(ResultData::competition_short.name, competition_short)
+                            .equalTo(ResultData::season.name, season)
+                            .findFirst()?.let{
+                                realm.copyFromRealm(it)
+                            }
+                }
 
         // 全件取得
         fun findAll(): List<ResultData> =
@@ -60,7 +72,7 @@ open class ResultData: RealmObject(), Serializable {
             Realm.getDefaultInstance().use{ realm ->
                 realm.where(ResultData::class.java)
                     .equalTo(ResultData::season.name, season)
-                    .equalTo(ResultData::competition.name, competition)
+                    .equalTo(ResultData::competition_short.name, competition)
                     .findFirst()?.let{
                         realm.copyFromRealm(it)
                     }
