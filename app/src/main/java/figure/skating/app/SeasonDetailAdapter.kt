@@ -34,9 +34,15 @@ class SeasonDetailAdapter(private val season: String, context: Context) : Recycl
         var item_competition_short = ""
 
         when (item_competition){
+
+            "Olympic Games" -> {
+                item_competition_short = "Olympic"
+            }
+
             "World Championships" -> {
                 item_competition_short = "WORLD"
             }
+
             "World Junior Championships" -> {
                 item_competition_short = "Jr WORLD"
             }
@@ -60,7 +66,7 @@ class SeasonDetailAdapter(private val season: String, context: Context) : Recycl
         }
 
 
-        // クリック時の処理
+        // リストをクリック時の処理
         holder.card_view_season_detail.setOnClickListener {
             val intent = Intent(it.context, ResultActivity::class.java)
             intent.putExtra("COMPETITION", item_competition_short)
@@ -74,6 +80,7 @@ class SeasonDetailAdapter(private val season: String, context: Context) : Recycl
         //val item_season = intent.getStringExtra("SEASON").toString()
 
 
+        // リザルトページへ遷移
         holder.image_webView.setOnClickListener {
             // seasonと、選択されたcompetitionからurlを抽出
             val resultURL = ResultData.searchURL(season, item_competition_short)!!.url

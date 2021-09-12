@@ -61,8 +61,8 @@ class MainActivity : AppCompatActivity() {
                             val addData = it.createObject(ResultData::class.java, UUID.randomUUID().toString())
                             addData.type = line[0]
                             addData.rank = line[1].toInt()
-                            addData.name = line[2]
-                            addData.country = line[3]
+                            addData.name = line[2].replace("?"," ")
+                            addData.country = line[3].trim().replace("?","").replace(" ","")
                             addData.score = line[4].toDouble()
                             addData.startDate = line[5]
                             addData.competition = line[6]

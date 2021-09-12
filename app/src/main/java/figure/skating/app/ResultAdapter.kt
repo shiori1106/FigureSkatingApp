@@ -19,7 +19,23 @@ class ResultAdapter(private val context: Context): RecyclerView.Adapter<ResultAd
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultAdapter.ResultViewHolder {
         return ResultViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_result, parent, false))
+        /*return when (viewType) {
+
+            // SP/FSのときのレイアウト
+            SPFS -> ResultViewHolder(
+                LayoutInflater.from(context).inflate(R.layout.recycler_result, parent, false))
+
+            // FINALのときのレイアウト
+            else -> ResultViewHolder(
+                LayoutInflater.from(context).inflate(R.layout.recycler_result_final, parent, false))
+        }*/
+
     }
+
+    /*// SP/FS, FINALかによってレイアウトを変更するため、ViewTypeを定める
+    override fun getItemViewType(position: Int): Int {
+        return if(resultList[0].type == "FINAL") FINAL else SPFS
+    }*/
 
     override fun onBindViewHolder(holder: ResultAdapter.ResultViewHolder, position: Int) {
         val item = resultList.get(position)
@@ -55,4 +71,10 @@ class ResultAdapter(private val context: Context): RecyclerView.Adapter<ResultAd
         val text_score: TextView = view.findViewById(R.id.text_score)
         val image_video: ImageView = view.findViewById(R.id.image_video)
     }
+
+    /*companion object{
+        // Viewの種類を数字と紐づけ
+        private const val SPFS = 0 // SP/FSのとき
+        private const val FINAL = 1 // 最終結果のとき
+    }*/
 }
