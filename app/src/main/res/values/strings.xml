@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FigureSkatingApp</string>
+    <string name="app_name">Figure Skating Data</string>
     <string name="tab1_title">Men SP</string>
     <string name="tab2_title">Men FS</string>
     <string name="tab3_title">Men Final</string>
@@ -17,4 +17,12 @@
     <string name="URL_JSF_results">https://www.jsfresults.com/index.htm</string>
     <string name="URL_JSF_player">https://www.skatingjapan.or.jp/figure/player/</string>
 
+    <string name="URL_googleplay_market">market://details?id=figure.skating.app</string>
+    <string name="URL_googleplay_url">https://play.google.com/store/apps/details?id=figure.skating.app</string>
+    <string name="URL_twitter">https://twitter.com/bigfanofskating</string>
+
+    <string name="text_resultPage"> : ISU公式リザルトページへ</string>
+    <string name="text_video"> : Youtubeで動画を検索</string>
+
+    <string name="aboutApp"></string>
 </resources>

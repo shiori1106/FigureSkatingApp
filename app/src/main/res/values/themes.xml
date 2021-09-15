@@ -12,8 +12,37 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <!--<item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:actionBarTabStyle">@style/MyActionBarTabStyle</item>
+        <item name="actionBarTabStyle">@style/MyActionBarTabStyle</item>-->
     </style>
 
+
+    <!-- アクションバーのレイアウト -->
+    <style name="MyActionBar" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/blue</item>
+        <item name="background">@color/blue</item>
+        <item name="android:titleTextStyle">@style/MyActionBarTitleText</item>
+        <item name="titleTextStyle">@style/MyActionBarTitleText</item>
+    </style>
+
+    <!--効かない
+    <style name="MyActionBarTabStyle" parent="Widget.AppCompat.ActionBar.TabView">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>-->
+
+    <style name="MyActionBarTitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <!--<item name="android:textSize">15sp</item>-->
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <!--<item name="android:textStyle">bold</item>-->
+        <!--<item name="fontFamily"></item> フォントフォルダ？-->
+    </style>
+
+
+    <!-- 上タブのレイアウト -->
     <style name="MyCustomTabTextAppearance" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">10sp</item>
     </style>

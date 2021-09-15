@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "981880270529",
+    "project_id": "figureskatingdataadmob",
+    "storage_bucket": "figureskatingdataadmob.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981880270529:android:dbea4d25b3cad3bf1d6e40",
+        "android_client_info": {
+          "package_name": "figure.skating.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "981880270529-11iacrskqtg7m6frnek8bsdk0uac56bd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWIA_7-OkbcyPYg64rJYc1dQWiYNC5cBQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "981880270529-11iacrskqtg7m6frnek8bsdk0uac56bd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,6 +2,7 @@ package figure.skating.app
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -85,10 +86,14 @@ class SeasonDetailAdapter(private val season: String, context: Context) : Recycl
             // seasonと、選択されたcompetitionからurlを抽出
             val resultURL = ResultData.searchURL(season, item_competition_short)!!.url
 
-            Log.d("kotlintest", season + "&" + holder.text_competition.text.toString())
-            Log.d("kotlintest", resultURL)
-            val intent = Intent(it.context, WebViewActivity::class.java)
+            // 暗黙的インテントバージョン
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(resultURL))
+
+            // webViewActivityを使うバージョン
+            /*val intent = Intent(it.context, WebViewActivity::class.java)
             intent.putExtra("URL", resultURL)
+            */
+
             it.context.startActivity(intent)
         }
 

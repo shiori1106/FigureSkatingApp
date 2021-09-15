@@ -2,13 +2,15 @@ package figure.skating.app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_result.*
 
 class ResultActivity : AppCompatActivity() {
 
-    private val viewPagerAdapter by lazy {ViewPageAdapter(this)}
+    private val viewPagerAdapter by lazy { ViewPageAdapter(this) }
 
     // SeasonDetailActivityからCOMPETITION、SEASONをそれぞれ受け取るための変数を初期化
     var competitonFromSeasonDetail = ""
@@ -24,10 +26,10 @@ class ResultActivity : AppCompatActivity() {
         seasonFromSeasonDetail = intent.getStringExtra("SEASON")!!
 
         // タイトルバーの設定
-        title = competitonFromSeasonDetail  + " / " + seasonFromSeasonDetail
+        title = competitonFromSeasonDetail + " / " + seasonFromSeasonDetail
 
         // ViewPager2の初期化
-        viewPager2.apply{
+        viewPager2.apply {
             adapter = viewPagerAdapter
             orientation = ViewPager2.ORIENTATION_HORIZONTAL // 横にスライド
             offscreenPageLimit = viewPagerAdapter.itemCount // 画面数
@@ -36,8 +38,8 @@ class ResultActivity : AppCompatActivity() {
         // TabLayoutの初期化
         // TabLayoutとViewPager2を紐づける
         // TabLayoutのTextを指定する
-        TabLayoutMediator(tabLayout, viewPager2){ tab, position ->
-            when(position){
+        TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
+            when (position) {
                 0 -> {
                     //tab.setCustomView(R.layout.tab_1)
                     tab.setText(R.string.tab1_title)
@@ -75,5 +77,23 @@ class ResultActivity : AppCompatActivity() {
                 }
             }
         }.attach()
+
+        // 上タブを選択したときの線の色を変える
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+
+                tabLayout.setSelectedTabIndicatorColor(
+                        ContextCompat.getColor(
+                                applicationContext,
+                                when (tab?.position) {
+                                    0, 1, 2 -> R.color.fresh
+                                    else -> R.color.sunshine
+                                }
+                        )
+                )
+            }
+        })
     }
 }

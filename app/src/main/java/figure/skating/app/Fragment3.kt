@@ -1,6 +1,7 @@
 package figure.skating.app
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -24,34 +25,52 @@ class Fragment3: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         cardView_ISU1.setOnClickListener {
-            val URL1 = getString(R.string.URL_ISU_statistics)
-            val intent = Intent(it.context, WebViewActivity::class.java)
-            intent.putExtra("URL", URL1)
-            it.context.startActivity(intent)
+            webViewURL(it, getString(R.string.URL_ISU_statistics))
         }
 
         cardView_ISU2.setOnClickListener {
-            val URL2 = getString(R.string.URL_ISU_results)
-            val intent = Intent(it.context, WebViewActivity::class.java)
-            intent.putExtra("URL", URL2)
-            it.context.startActivity(intent)
+            webViewURL(it, getString(R.string.URL_ISU_results))
         }
 
         cardView_ISU3.setOnClickListener {
-            val URL3 = getString(R.string.URL_ISU_calendar)
-            val intent = Intent(it.context, WebViewActivity::class.java)
-            intent.putExtra("URL", URL3)
+            webViewURL(it, getString(R.string.URL_ISU_calendar))
+        }
+
+        cardView_JSF1.setOnClickListener {
+            webViewURL(it, getString(R.string.URL_JSF_results))
+        }
+
+        cardView_JSF2.setOnClickListener {
+            webViewURL(it, getString(R.string.URL_JSF_player))
+        }
+
+        cardView_other1.setOnClickListener {
+            val intent = Intent(it.context, AboutAppActivity::class.java)
             it.context.startActivity(intent)
         }
 
-        /*button_youtube.setOnClickListener {
-            //val intent = Intent(context, YoutubeViewActivity::class.java)
-            val intent = Intent(Intent.ACTION_SEARCH)
-            intent.setPackage("com.google.android.youtube")
-            intent.putExtra("query","hanyu")
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
-        }*/
+        cardView_other2.setOnClickListener {
+            // PlayStoreが無効の場合は、webに飛ぶようにする
+            try {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.URL_googleplay_market)))
+                it.context.startActivity(intent)
+
+            } catch (anfe: android.content.ActivityNotFoundException){
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.URL_googleplay_url)))
+                it.context.startActivity(intent)
+            }
+
+        }
+
+        cardView_other3.setOnClickListener {
+            webViewURL(it, getString(R.string.URL_twitter))
+        }
+
     }
 
+    fun webViewURL(view: View, url: String){
+        val intent = Intent(view.context, WebViewActivity::class.java)
+        intent.putExtra("URL", url)
+        view.context.startActivity(intent)
+    }
 }
