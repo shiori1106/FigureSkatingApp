@@ -45,32 +45,18 @@ class Fragment1: Fragment() {
             layoutManager = LinearLayoutManager(requireContext())
         }
 
+
         // Realmの設定
         Realm.init(requireContext())
-
-        // csvからインポート
-        //val config = RealmConfiguration.Builder().assetFile("sampleData.realm").deleteRealmIfMigrationNeeded().build()
-        //Realm.setDefaultConfiguration(config)
-
         mRealm = Realm.getDefaultInstance()
 
         // Realmのデータを全て消す
-        //deleteAll()
+        deleteAll()
 
         // CSVのデータをRealmに格納
-        //readCSV("resultData.csv")
+        readCSV("resultData.csv")
 
 
-
-        // Realmデータベースから、シーズンのみ重複なしで取得
-        /*val seasonRealmResults = mRealm.where(ResultData::class.java)
-            .distinct("season")
-            .findAll()
-            .sort("season", Sort.DESCENDING)
-
-        Log.d("kotlintest",seasonRealmResults[0]!!.name)
-        Log.d("kotlintest",seasonRealmResults[0]!!.season)
-*/
         // シーズンのデータを全てseasonRealmListに格納
         val seasonRealmResults = mRealm.where(ResultData::class.java).findAll()
         val seasonRealmList = mutableListOf<String>()
@@ -83,62 +69,14 @@ class Fragment1: Fragment() {
 
         seasonAdapter.seasonList = seasonRealmList_sorted
 
-        /*// realmの中身を表示
-        for (j in 0..seasonRealmResults.size-1){
-            Log.d("kotlintest_realm",seasonRealmResults[j]!!.season + seasonRealmResults[j]!!.competition )
-        }*/
-
-        //seasonAdapter.seasonList = mRealm.copyFromRealm(seasonRealmResults)
-    //Log.d("kotlintest",seasonList.toString())
-
-        /*// データ削除
-
-        mRealm.executeTransaction { realm ->
-            realm.where(ResultData::class.java)
-                .findAll()
-                .deleteAllFromRealm()
-        }*/
-
-        /*// サンプルデータ追加
-        mRealm.executeTransaction {
-            //val addData = it.createObject(ResultData::class.java, UUID.randomUUID().toString())
-            val addData = it.createObject(ResultData::class.java, 1)
-            //val addData = it.createObject(ResultData::class.java,1)
-            //addData.id = 1
-            addData.type = "SP"
-            addData.rank = 1
-            addData.name = "Nathan Chen"//"Yuzuru Hanyu"
-            addData.country = "USA" //"JPN"
-            addData.score = 109.34 //100.45
-            addData.startDate = "2017/3/30"
-            addData.competition = "World Championships"
-            addData.url = "http://www.isuresults.com/results/season2122/jgpsvk2021/"
-            addData.season = "2020-2021"
-            addData.gender = "M"
-        }*/
-
-
-        // これいらない？
-        /*val addData = ResultData()
-        mRealm.beginTransaction()
-        mRealm.insert(addData)
-        mRealm.commitTransaction()
-
-        mRealm.close()
-        */
-
-
         }
-
-
-
 
     override fun onDestroy() {
         super.onDestroy()
         mRealm.close()
     }
 
-    /*
+
     fun deleteAll() {
         mRealm.executeTransaction { realm ->
             realm.where(ResultData::class.java)
@@ -165,14 +103,15 @@ class Fragment1: Fragment() {
                             val addData = it.createObject(ResultData::class.java, UUID.randomUUID().toString())
                             addData.type = line[0]
                             addData.rank = line[1].toInt()
-                            addData.name = line[2]
-                            addData.country = line[3]
+                            addData.name = line[2].replace("?"," ")
+                            addData.country = line[3].trim().replace("?","").replace(" ","")
                             addData.score = line[4].toDouble()
                             addData.startDate = line[5]
                             addData.competition = line[6]
-                            addData.url = line[7]
-                            addData.season = line[8]
-                            addData.gender = line[9]
+                            addData.competition_short = line[7]
+                            addData.url = line[8]
+                            addData.season = line[9]
+                            addData.gender = line[10]
                         }
 
                     }
@@ -184,5 +123,5 @@ class Fragment1: Fragment() {
             // 例外処理
             print(e)
         }
-    }*/
+    }
 }

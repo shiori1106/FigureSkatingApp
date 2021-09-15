@@ -13,6 +13,7 @@
     <string name="URL_ISU_statistics">https://www.isu.org/figure-skating/entries-results/statistics</string>
     <string name="URL_ISU_results">https://www.isu.org/figure-skating/entries-results/fsk-results</string>
     <string name="URL_ISU_calendar">https://www.isu.org/figure-skating/events/figure-skating-calendar</string>
+    <string name="URL_ISU_bio">http://www.isuresults.com/bios/</string>
 
     <string name="URL_JSF_results">https://www.jsfresults.com/index.htm</string>
     <string name="URL_JSF_player">https://www.skatingjapan.or.jp/figure/player/</string>
@@ -24,5 +25,8 @@
     <string name="text_resultPage"> : ISU公式リザルトページへ</string>
     <string name="text_video"> : Youtubeで動画を検索</string>
 
-    <string name="aboutApp"></string>
+    <string name="aboutApp">Figure Skating Dataアプリをご利用いただきありがとうございます。\n
+    本アプリで使用しているデータは独自で取得・蓄積したものです。\n
+    データの扱いには十分注意していますが、もし誤りがありましたらご指摘いただけると幸いです。
+    </string>
 </resources>

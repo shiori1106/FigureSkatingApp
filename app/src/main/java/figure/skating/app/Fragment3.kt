@@ -36,6 +36,10 @@ class Fragment3: Fragment() {
             webViewURL(it, getString(R.string.URL_ISU_calendar))
         }
 
+        cardView_ISU4.setOnClickListener {
+            webViewURL(it, getString(R.string.URL_ISU_bio))
+        }
+
         cardView_JSF1.setOnClickListener {
             webViewURL(it, getString(R.string.URL_JSF_results))
         }

@@ -27,15 +27,15 @@ class MainActivity : AppCompatActivity() {
         Realm.init(this)
         mRealm = Realm.getDefaultInstance()
 
-        // Realmのデータを全て消す
+        /*// Realmのデータを全て消す
         deleteAll()
 
         // CSVのデータをRealmに格納
-        readCSV("resultData.csv")
+        readCSV("resultData.csv")*/
 
     }
 
-    fun deleteAll() {
+    /*fun deleteAll() {
         mRealm.executeTransaction { realm ->
             realm.where(ResultData::class.java)
                     .findAll()
@@ -81,5 +81,5 @@ class MainActivity : AppCompatActivity() {
             // 例外処理
             print(e)
         }
-    }
+    }*/
 }
