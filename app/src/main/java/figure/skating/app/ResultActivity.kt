@@ -1,7 +1,10 @@
 package figure.skating.app
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
@@ -40,6 +43,7 @@ class ResultActivity : AppCompatActivity() {
         // タイトルバーの設定
         //title = competitonFromSeasonDetail + " / " + seasonFromSeasonDetail
         supportActionBar?.setTitle(competitonFromSeasonDetail + " / " + seasonFromSeasonDetail)
+
 
         // ViewPager2の初期化
         viewPager2.apply {
@@ -115,4 +119,22 @@ class ResultActivity : AppCompatActivity() {
         finish()
         return super.onSupportNavigateUp()
     }
+
+    /*
+    // 右上のホームボタンを作成
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.home_menu, menu)
+        return true
+    }
+
+    // 右上のホームボタンが押されたら、MainActivityへ　→落ちる・・・
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+
+        if(id == R.id.action_home){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+        return super.onOptionsItemSelected(item)
+    }*/
 }

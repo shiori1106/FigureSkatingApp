@@ -4,17 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="30dp"
     tools:context=".AboutAppActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:titleTextColor="@color/white"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/blue"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/text_jp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:lineSpacingMultiplier="1.3"
         android:text="@string/aboutApp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -23,15 +34,19 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:background="@color/clean"
         app:layout_constraintTop_toBottomOf="@id/text_jp"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/text_jp2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:lineSpacingMultiplier="1.5"
         android:text="@string/aboutApp_english"
         app:layout_constraintTop_toBottomOf="@id/text_line"
@@ -50,7 +65,7 @@
         app:layout_constraintBottom_toTopOf="@id/button_twitter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/fresh"
+        android:background="@drawable/button_background"
         android:foreground="?android:attr/selectableItemBackground"
         android:clickable="true"/>
 
@@ -66,7 +81,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/fresh"
+        android:background="@drawable/button_background"
         android:foreground="?android:attr/selectableItemBackground"
         android:clickable="true"/>
 
