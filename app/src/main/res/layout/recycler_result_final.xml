@@ -20,14 +20,13 @@
         android:layout_height="match_parent"
         android:layout_gravity="center">
 
-        <!--
         <TextView
             android:layout_width="5dp"
             android:layout_height="match_parent"
-            android:background="@color/sunshine"
+            android:background="@color/fresh"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
-        -->
+
 
         <TextView
             android:id="@+id/text_rank"

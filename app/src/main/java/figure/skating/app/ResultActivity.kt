@@ -2,6 +2,7 @@ package figure.skating.app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
@@ -21,12 +22,24 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
+        // レイアウトのtoolbarをtoolbar要素を取得
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+
+        // アクションバーにツールバーをセット
+        setSupportActionBar(toolbar)
+
+        // アクションバーに戻るボタンをつける
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24)
+
+
         // SeasonDetailActivityからCOMPETITION、SEASONをそれぞれ受け取る
         competitonFromSeasonDetail = intent.getStringExtra("COMPETITION")!!
         seasonFromSeasonDetail = intent.getStringExtra("SEASON")!!
 
         // タイトルバーの設定
-        title = competitonFromSeasonDetail + " / " + seasonFromSeasonDetail
+        //title = competitonFromSeasonDetail + " / " + seasonFromSeasonDetail
+        supportActionBar?.setTitle(competitonFromSeasonDetail + " / " + seasonFromSeasonDetail)
 
         // ViewPager2の初期化
         viewPager2.apply {
@@ -95,5 +108,11 @@ class ResultActivity : AppCompatActivity() {
                 )
             }
         })
+    }
+
+    // 戻るボタンを押すと、アクティビティを終了させることで前の画面に戻る
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return super.onSupportNavigateUp()
     }
 }

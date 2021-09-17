@@ -14,10 +14,26 @@ class ResultFinalAdapter(private val context: Context): RecyclerView.Adapter<Res
     var resultFinalList = mutableListOf<ResultData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultFinalAdapter.ResultFinalViewHolder {
-        return  ResultFinalAdapter.ResultFinalViewHolder(
+        /*return  ResultFinalAdapter.ResultFinalViewHolder(
                 LayoutInflater.from(context).inflate(R.layout.recycler_result_final, parent, false)
-            )
+            )*/
+
+        return when (viewType) {
+
+            // MENのときのレイアウト
+            ResultFinalAdapter.MEN -> ResultFinalAdapter.ResultFinalViewHolder(
+                    LayoutInflater.from(context).inflate(R.layout.recycler_result_final, parent, false))
+
+            // WOMENのときのレイアウト
+            else -> ResultFinalAdapter.ResultFinalViewHolder(
+                    LayoutInflater.from(context).inflate(R.layout.recycler_result_final_women, parent, false))
         }
+        }
+
+    // MEN/WOMENによってレイアウトを変更するため、ViewTypeを定める
+    override fun getItemViewType(position: Int): Int {
+        return if(resultFinalList[position].gender == "M") ResultFinalAdapter.MEN else ResultFinalAdapter.WOMEN
+    }
 
     override fun onBindViewHolder(holder: ResultFinalAdapter.ResultFinalViewHolder, position: Int) {
         val item = resultFinalList.get(position)
@@ -42,6 +58,12 @@ class ResultFinalAdapter(private val context: Context): RecyclerView.Adapter<Res
         val text_name: TextView = view.findViewById(R.id.text_name)
         val text_country: TextView = view.findViewById(R.id.text_country)
         val text_score: TextView = view.findViewById(R.id.text_score)
+    }
+
+    companion object{
+        // Viewの種類を数字と紐づけ
+        private const val MEN = 0 // MENのとき
+        private const val WOMEN = 1 // WOMENのとき
     }
 
 }

@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="5dp"
             android:layout_height="match_parent"
-            android:background="@color/fresh"
+            android:background="@color/sunshine"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 

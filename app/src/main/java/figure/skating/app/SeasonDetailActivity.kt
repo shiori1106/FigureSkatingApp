@@ -3,6 +3,8 @@ package figure.skating.app
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_season_detail.*
@@ -22,11 +24,22 @@ class SeasonDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_season_detail)
 
+        // レイアウトのtoolbarをtoolbar要素を取得
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+
+        // アクションバーにツールバーをセット
+        setSupportActionBar(toolbar)
+
+        // アクションバーに戻るボタンをつける
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24)
+
         // Fragment1からSEASONを受け取る
         val seasonFromFragment1 = intent.getStringExtra("SEASON")
 
         // タイトルバーの設定
-        title = seasonFromFragment1
+        //title = seasonFromFragment1
+        supportActionBar?.setTitle(seasonFromFragment1)
 
         // RecyclerViewの表示のために必要となるAdapterクラス
         val seasonDetailAdapter by lazy{SeasonDetailAdapter(seasonFromFragment1!!,this)}
@@ -87,6 +100,16 @@ class SeasonDetailActivity : AppCompatActivity() {
 
         seasonDetailAdapter.seasonDetailList = seasonDetailRealmList
         Log.d("kotlintest",seasonDetailAdapter.seasonDetailList.size.toString())
+    }
+
+    // 戻るボタンを押すと、アクティビティを終了させることで前の画面に戻る
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return super.onSupportNavigateUp()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onDestroy() {

@@ -18,24 +18,25 @@ class ResultAdapter(private val context: Context): RecyclerView.Adapter<ResultAd
     //var resultList = mutableListOf<String>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultAdapter.ResultViewHolder {
-        return ResultViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_result, parent, false))
-        /*return when (viewType) {
+        //return ResultViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_result, parent, false))
+        return when (viewType) {
 
-            // SP/FSのときのレイアウト
-            SPFS -> ResultViewHolder(
+            // MENのときのレイアウト
+            MEN -> ResultViewHolder(
                 LayoutInflater.from(context).inflate(R.layout.recycler_result, parent, false))
 
-            // FINALのときのレイアウト
+            // WOMENのときのレイアウト
             else -> ResultViewHolder(
-                LayoutInflater.from(context).inflate(R.layout.recycler_result_final, parent, false))
-        }*/
+                LayoutInflater.from(context).inflate(R.layout.recycler_result_women, parent, false))
+        }
+
 
     }
 
-    /*// SP/FS, FINALかによってレイアウトを変更するため、ViewTypeを定める
+    // MEN/WOMENによってレイアウトを変更するため、ViewTypeを定める
     override fun getItemViewType(position: Int): Int {
-        return if(resultList[0].type == "FINAL") FINAL else SPFS
-    }*/
+        return if(resultList[position].gender == "M") MEN else WOMEN
+    }
 
     override fun onBindViewHolder(holder: ResultAdapter.ResultViewHolder, position: Int) {
         val item = resultList.get(position)
@@ -72,9 +73,9 @@ class ResultAdapter(private val context: Context): RecyclerView.Adapter<ResultAd
         val image_video: ImageView = view.findViewById(R.id.image_video)
     }
 
-    /*companion object{
+    companion object{
         // Viewの種類を数字と紐づけ
-        private const val SPFS = 0 // SP/FSのとき
-        private const val FINAL = 1 // 最終結果のとき
-    }*/
+        private const val MEN = 0 // MENのとき
+        private const val WOMEN = 1 // WOMENのとき
+    }
 }

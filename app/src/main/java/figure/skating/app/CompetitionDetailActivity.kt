@@ -2,6 +2,7 @@ package figure.skating.app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_competition_detail.*
@@ -14,6 +15,17 @@ class CompetitionDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_competition_detail)
+
+        // レイアウトのtoolbarをtoolbar要素を取得
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+
+        // アクションバーにツールバーをセット
+        setSupportActionBar(toolbar)
+
+        // アクションバーに戻るボタンをつける
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24)
+
 
         // Fragment2からCOMPETITIONを受け取る
         val competitionFromFragment2 = intent.getStringExtra("COMPETITION")
@@ -52,7 +64,8 @@ class CompetitionDetailActivity : AppCompatActivity() {
         }
 
         // タイトルバーの設定
-        title = competitionFromFragment2
+        //title = competitionFromFragment2
+        supportActionBar?.setTitle(competitionFromFragment2)
 
         // RecyclerViewの表示のために必要となるAdapterクラス
         val competitionDetailAdapter by lazy{CompetitionDetailAdapter(competitionFromFragment2!!,this)}
@@ -84,5 +97,11 @@ class CompetitionDetailActivity : AppCompatActivity() {
 
         competitionDetailAdapter.competitionDetailList = seasonRealmList_sorted
 
+    }
+
+    // 戻るボタンを押すと、アクティビティを終了させることで前の画面に戻る
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return super.onSupportNavigateUp()
     }
 }

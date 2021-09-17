@@ -22,11 +22,18 @@
     <string name="URL_googleplay_url">https://play.google.com/store/apps/details?id=figure.skating.app</string>
     <string name="URL_twitter">https://twitter.com/bigfanofskating</string>
 
+    <string name="gmail">kirakira.a.b.c.d.e@gmail.com</string>
+    <string name="gmail_subject">Figure Skating Dataについて</string>
+
     <string name="text_resultPage"> : ISU公式リザルトページへ</string>
     <string name="text_video"> : Youtubeで動画を検索</string>
+    <string name="text_video2"> （動画が見つからないこともあります）</string>
 
-    <string name="aboutApp">Figure Skating Dataアプリをご利用いただきありがとうございます。\n
-    本アプリで使用しているデータは独自で取得・蓄積したものです。\n
-    データの扱いには十分注意していますが、もし誤りがありましたらご指摘いただけると幸いです。
+    <string name="aboutApp">
+        Figure Skating Dataアプリをご利用いただきありがとうございます。\n本アプリで使用しているデータは独自で取得・蓄積したものです。\nデータの扱いには十分注意していますが、もし誤りがありましたらご指摘いただけると幸いです。
+    </string>
+
+    <string name="aboutApp_english">
+        Thank you for using the Figure Skating Data app. The data used in this application is acquired and accumulated by myself. I am careful in handling the data, but I would appreciate it if you could point out any mistakes.Also, I would appreciate it if you could tell me if your English is wrong.
     </string>
 </resources>

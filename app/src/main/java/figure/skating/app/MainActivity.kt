@@ -2,6 +2,7 @@ package figure.skating.app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import io.realm.Realm
@@ -18,6 +19,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // レイアウトのtoolbarをtoolbar要素を取得
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+
+        // アクションバーにツールバーをセット
+        setSupportActionBar(toolbar)
+
+        // タイトルバーのアプリ名を非表示
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         // 下タブの設定
         val navController = findNavController(R.id.bottom_navigation_view_fragment)
