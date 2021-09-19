@@ -21,8 +21,8 @@
             android:text="Figure Skating Data"
             android:textColor="@color/white"
             android:layout_gravity="center"
-            android:textSize="17sp"
-            android:fontFamily="sans-serif-thin"/>
+            android:textSize="27sp"
+            android:fontFamily="sans-serif-smallcaps"/>
     </androidx.appcompat.widget.Toolbar>
 
 

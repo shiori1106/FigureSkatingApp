@@ -6,7 +6,7 @@
         android:title="シーズン別"/>
     <item
         android:id="@+id/tab2"
-        android:icon="@drawable/ic_baseline_ice_skating_24"
+        android:icon="@drawable/ic_baseline_tour_24"
         android:title="試合別"/>
 
     <item

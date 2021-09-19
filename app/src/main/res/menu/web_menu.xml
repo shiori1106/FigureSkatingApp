@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="メニュー"
+        android:icon="@drawable/ic_baseline_more_vert_24"
+        app:showAsAction="always">
+
+        <menu>
+            <item
+                android:id="@+id/web1"
+                android:title="リンクをコピー"/>
+            <item
+                android:id="@+id/web2"
+                android:title="ブラウザで開く"/>
+
+        </menu>
+
+    </item>
+</menu>

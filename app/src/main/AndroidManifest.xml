@@ -23,12 +23,13 @@
             android:value="ca-app-pub-3940256099942544~3347511713"/>
 
 
-        <activity android:name=".CompetitionDetailActivity"></activity>
+        <activity android:name=".CompetitionDetailActivity"/>
         <activity android:name=".AboutAppActivity" />
         <activity android:name=".ResultActivity" /> <!-- android:parentActivityName=".SeasonDetailActivity"/> -->
         <activity android:name=".WebViewActivity" />
         <activity android:name=".SeasonDetailActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

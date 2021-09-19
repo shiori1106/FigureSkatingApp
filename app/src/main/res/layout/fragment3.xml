@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:background="@color/clean">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="175dp"
+        tools:layout_editor_absoluteY="210dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -21,11 +25,11 @@
                 android:id="@+id/text_link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="リンク集"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="リンク集"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <!-- ISU -->
             <androidx.cardview.widget.CardView
@@ -33,11 +37,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
-                app:cardElevation="2dp"
-                app:layout_constraintTop_toBottomOf="@id/text_link"
-                app:layout_constraintStart_toStartOf="parent"
+                android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true">
+                app:cardElevation="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_link">
 
                 <!--
                 <TextView
@@ -50,14 +54,14 @@
                 <TextView
                     android:layout_width="5dp"
                     android:layout_height="match_parent"
-                    android:background="@color/fresh"/>
+                    android:background="@color/fresh" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ISU  -  Statistics"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:layout_gravity="center_vertical"/>
+                    android:text="ISU  -  Statistics" />
 
             </androidx.cardview.widget.CardView>
 
@@ -65,90 +69,90 @@
                 android:id="@+id/cardView_ISU2"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                app:cardElevation="2dp"
-                app:layout_constraintTop_toBottomOf="@id/cardView_ISU1"
-                app:layout_constraintStart_toStartOf="parent"
+                android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true">
+                app:cardElevation="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardView_ISU1">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:background="#808080"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/cardView_ISU2"
-                    android:background="#808080"/>
+                    app:layout_constraintTop_toTopOf="@id/cardView_ISU2" />
 
                 <TextView
                     android:layout_width="5dp"
                     android:layout_height="match_parent"
-                    android:background="@color/fresh"/>
+                    android:background="@color/fresh" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ISU  -  Results"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:layout_gravity="center_vertical"/>
+                    android:text="ISU  -  Results" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView_ISU3"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                app:cardElevation="2dp"
-                app:layout_constraintTop_toBottomOf="@id/cardView_ISU2"
-                app:layout_constraintStart_toStartOf="parent"
+                android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true">
+                app:cardElevation="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardView_ISU2">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:background="#808080"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/cardView_ISU3"
-                    android:background="#808080"/>
+                    app:layout_constraintTop_toTopOf="@id/cardView_ISU3" />
 
                 <TextView
                     android:layout_width="5dp"
                     android:layout_height="match_parent"
-                    android:background="@color/fresh"/>
+                    android:background="@color/fresh" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ISU  -  Calendar of Events"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:layout_gravity="center_vertical"/>
+                    android:text="ISU  -  Calendar of Events" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView_ISU4"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                app:cardElevation="2dp"
-                app:layout_constraintTop_toBottomOf="@id/cardView_ISU3"
-                app:layout_constraintStart_toStartOf="parent"
+                android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true">
+                app:cardElevation="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardView_ISU3">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:background="#808080"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/cardView_ISU4"
-                    android:background="#808080"/>
+                    app:layout_constraintTop_toTopOf="@id/cardView_ISU4" />
 
                 <TextView
                     android:layout_width="5dp"
                     android:layout_height="match_parent"
-                    android:background="@color/fresh"/>
+                    android:background="@color/fresh" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ISU  -  Biographies"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:layout_gravity="center_vertical"/>
+                    android:text="ISU  -  Biographies" />
             </androidx.cardview.widget.CardView>
 
             <!-- JSF -->
@@ -156,73 +160,73 @@
                 android:id="@+id/cardView_JSF1"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                app:cardElevation="2dp"
                 android:layout_marginTop="0dp"
-                app:layout_constraintTop_toBottomOf="@id/cardView_ISU4"
-                app:layout_constraintStart_toStartOf="parent"
+                android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true">
+                app:cardElevation="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardView_ISU4">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:background="#808080"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/cardView_JSF1"
-                    android:background="#808080"/>
+                    app:layout_constraintTop_toTopOf="@id/cardView_JSF1" />
 
                 <TextView
                     android:layout_width="5dp"
                     android:layout_height="match_parent"
-                    android:background="@color/sunshine"/>
+                    android:background="@color/sunshine" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="JSF  -  Official Results ＆ Data Site"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:layout_gravity="center_vertical"/>
+                    android:text="JSF  -  Official Results ＆ Data Site" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView_JSF2"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                app:cardElevation="2dp"
-                app:layout_constraintTop_toBottomOf="@id/cardView_JSF1"
-                app:layout_constraintStart_toStartOf="parent"
+                android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true">
+                app:cardElevation="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardView_JSF1">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:background="#808080"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/cardView_JSF1"
-                    android:background="#808080"/>
+                    app:layout_constraintTop_toTopOf="@id/cardView_JSF1" />
 
                 <TextView
                     android:layout_width="5dp"
                     android:layout_height="match_parent"
-                    android:background="@color/sunshine"/>
+                    android:background="@color/sunshine" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="JSF  -  強化選手"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:layout_gravity="center_vertical"/>
+                    android:text="JSF  -  強化選手" />
             </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/text_aboutISU"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="※ISU = International Skating Union,   JSF = Japan Skating Federation"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
-                app:layout_constraintTop_toBottomOf="@id/cardView_JSF2"
+                android:layout_marginTop="10dp"
+                android:text="※ISU = International Skating Union,   JSF = Japan Skating Federation"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                android:textSize="12sp"/>
+                app:layout_constraintTop_toBottomOf="@id/cardView_JSF2" />
 
             <!--
             <TextView
@@ -242,12 +246,12 @@
                 android:id="@+id/text_other"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="その他"
-                android:layout_marginTop="40dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="40dp"
+                android:text="その他"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_aboutISU"/>
-                <!--app:layout_constraintTop_toBottomOf="@id/cardView_JSF2"/>-->
+                app:layout_constraintTop_toBottomOf="@id/text_aboutISU" />
+            <!--app:layout_constraintTop_toBottomOf="@id/cardView_JSF2"/>-->
 
 
             <androidx.cardview.widget.CardView
@@ -255,11 +259,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
-                app:cardElevation="2dp"
-                app:layout_constraintTop_toBottomOf="@id/text_other"
-                app:layout_constraintStart_toStartOf="parent"
+                android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true">
+                app:cardElevation="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_other">
 
                 <!--
                 <TextView
@@ -272,14 +276,14 @@
                 <TextView
                     android:layout_width="5dp"
                     android:layout_height="match_parent"
-                    android:background="@color/white"/>
+                    android:background="@color/white" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="アプリについて"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:layout_gravity="center_vertical"/>
+                    android:text="アプリについて" />
 
             </androidx.cardview.widget.CardView>
 
@@ -287,30 +291,30 @@
                 android:id="@+id/cardView_other2"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                app:cardElevation="2dp"
-                app:layout_constraintTop_toBottomOf="@id/cardView_other1"
-                app:layout_constraintStart_toStartOf="parent"
+                android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true">
+                app:cardElevation="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardView_other1">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:background="#808080"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/cardView_other2"
-                    android:background="#808080"/>
+                    app:layout_constraintTop_toTopOf="@id/cardView_other2" />
 
                 <TextView
                     android:layout_width="5dp"
                     android:layout_height="match_parent"
-                    android:background="@color/white"/>
+                    android:background="@color/white" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="レビューを書く"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:layout_gravity="center_vertical"/>
+                    android:text="レビューを書く" />
 
             </androidx.cardview.widget.CardView>
 
@@ -318,30 +322,30 @@
                 android:id="@+id/cardView_other3"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                app:cardElevation="2dp"
-                app:layout_constraintTop_toBottomOf="@id/cardView_other2"
-                app:layout_constraintStart_toStartOf="parent"
+                android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true">
+                app:cardElevation="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardView_other2">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:background="#808080"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/cardView_other3"
-                    android:background="#808080"/>
+                    app:layout_constraintTop_toTopOf="@id/cardView_other3" />
 
                 <TextView
                     android:layout_width="5dp"
                     android:layout_height="match_parent"
-                    android:background="@color/white"/>
+                    android:background="@color/white" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Twitterアカウント"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:layout_gravity="center_vertical"/>
+                    android:text="Twitterアカウント" />
 
             </androidx.cardview.widget.CardView>
 

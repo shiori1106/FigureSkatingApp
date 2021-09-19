@@ -25,6 +25,7 @@
         android:layout_gravity="center"
         android:paddingLeft="10dp"
         android:text="2020-2021"
+        android:fontFamily="@font/mplus_rounded1c_medium"
         android:textSize="16sp"/>
 
 </androidx.cardview.widget.CardView>
