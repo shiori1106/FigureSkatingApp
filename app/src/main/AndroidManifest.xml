@@ -18,9 +18,12 @@
         android:theme="@style/Theme.FigureSkatingApp"
         android:usesCleartextTraffic="true">
 
+        <!--テスト　ca-app-pub-3940256099942544~3347511713-->
+        <!--本番　ca-app-pub-3697350430303186~2853746789-->
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-3697350430303186~2853746789"/>
 
 
         <activity android:name=".CompetitionDetailActivity"/>

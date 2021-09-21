@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.*
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import io.realm.Sort
@@ -23,6 +24,8 @@ class Fragment1: Fragment() {
     private val seasonAdapter by lazy{SeasonAdapter(requireContext())}
     private lateinit var mRealm: Realm
 
+    lateinit var mAdView : AdView
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,6 +39,11 @@ class Fragment1: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
+
+
 
         // recycleViewの初期化を行う
         recyclerView1.apply{
@@ -68,6 +76,38 @@ class Fragment1: Fragment() {
         val seasonRealmList_sorted = seasonRealmList.distinct().sortedDescending().toMutableList()
 
         seasonAdapter.seasonList = seasonRealmList_sorted
+
+
+
+        // admob用
+        MobileAds.initialize(requireContext()){}
+        mAdView = adView
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
+        mAdView.adListener = object : AdListener(){
+            override fun onAdFailedToLoad(error: LoadAdError) {
+                // Gets the domain from which the error came.
+                val errorDomain = error.domain
+                // Gets the error code. See
+                // https://developers.google.com/android/reference/com/google/android/gms/ads/AdRequest#constant-summary
+                // for a list of possible codes.
+                val errorCode = error.code
+                // Gets an error message.
+                // For example "Account not approved yet". See
+                // https://support.google.com/admob/answer/9905175 for explanations of
+                // common errors.
+                val errorMessage = error.message
+                // Gets additional response information about the request. See
+                // https://developers.google.com/admob/android/response-info for more
+                // information.
+                val responseInfo = error.responseInfo
+                // Gets the cause of the error, if available.
+                val cause = error.cause
+                // All of this information is available via the error's toString() method.
+                Log.d("Ads_test", error.toString())
+            }
+        }
 
         }
 
@@ -124,4 +164,6 @@ class Fragment1: Fragment() {
             print(e)
         }
     }
+
+
 }

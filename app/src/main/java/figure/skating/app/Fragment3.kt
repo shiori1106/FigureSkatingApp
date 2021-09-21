@@ -8,9 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.gms.ads.*
 import kotlinx.android.synthetic.main.fragment3.*
+import kotlinx.android.synthetic.main.fragment3.adView
 
 class Fragment3: Fragment() {
+
+    lateinit var mAdView : AdView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,6 +27,18 @@ class Fragment3: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // admob用
+        MobileAds.initialize(requireContext()){}
+        mAdView = adView
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
+        mAdView.adListener = object : AdListener() {
+            override fun onAdFailedToLoad(error: LoadAdError) {
+                Log.d("Ads_test3", error.toString())
+            }
+        }
 
         cardView_ISU1.setOnClickListener {
             webViewURL(it, getString(R.string.URL_ISU_statistics))
@@ -67,7 +83,8 @@ class Fragment3: Fragment() {
         }
 
         cardView_other3.setOnClickListener {
-            webViewURL(it, getString(R.string.URL_twitter))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.URL_twitter)))
+            it.context.startActivity(intent)
         }
 
     }

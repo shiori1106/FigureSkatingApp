@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import io.realm.Realm
-import kotlinx.android.synthetic.main.fragment1.*
 import kotlinx.android.synthetic.main.fragment2.*
 
 class Fragment2: Fragment() {
@@ -16,6 +18,8 @@ class Fragment2: Fragment() {
     // RecyclerViewの表示のために必要となるAdapterクラス
     private val competitionAdapter by lazy{CompetitionAdapter(requireContext())}
     private lateinit var mRealm: Realm
+
+    lateinit var mAdView : AdView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,6 +48,13 @@ class Fragment2: Fragment() {
         // 表示させるリストを作成
         val competitionList = mutableListOf("Olympic Games","World Championships", "World Junior Championships", "Grand Prix Final", "Junior Grand Prix Final", "European Championships", "Four Continents Championships")
         competitionAdapter.competitionList = competitionList
+
+
+        // admob用
+        MobileAds.initialize(requireContext()){}
+        mAdView = adView
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
 
     }
 

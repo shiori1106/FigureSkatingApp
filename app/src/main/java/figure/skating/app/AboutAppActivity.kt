@@ -36,9 +36,8 @@ class AboutAppActivity : AppCompatActivity() {
         }
 
         button_twitter.setOnClickListener {
-            val intent = Intent(it.context, WebViewActivity::class.java)
-            intent.putExtra("URL", getString(R.string.URL_twitter))
-            startActivity(intent)
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.URL_twitter)))
+            it.context.startActivity(intent)
         }
     }
 
