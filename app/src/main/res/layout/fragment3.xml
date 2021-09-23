@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
-                android:text="リンク集"
+                android:text="@string/link"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:text="ISU  -  Statistics" />
+                    android:text="@string/statistics" />
 
             </androidx.cardview.widget.CardView>
 
@@ -92,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:text="ISU  -  Results" />
+                    android:text="@string/results" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -122,7 +122,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:text="ISU  -  Calendar of Events" />
+                    android:text="@string/event" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -152,7 +152,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:text="ISU  -  Biographies" />
+                    android:text="@string/bio" />
             </androidx.cardview.widget.CardView>
 
             <!-- JSF -->
@@ -184,7 +184,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:text="JSF  -  Official Results ＆ Data Site" />
+                    android:text="@string/results_jsf" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -214,7 +214,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:text="JSF  -  強化選手" />
+                    android:text="@string/skaters" />
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -248,7 +248,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="40dp"
-                android:text="その他"
+                android:text="@string/others"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_aboutISU" />
             <!--app:layout_constraintTop_toBottomOf="@id/cardView_JSF2"/>-->
@@ -283,7 +283,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:text="アプリについて" />
+                    android:text="@string/about" />
 
             </androidx.cardview.widget.CardView>
 
@@ -314,7 +314,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:text="レビューを書く" />
+                    android:text="@string/review" />
 
             </androidx.cardview.widget.CardView>
 
@@ -345,7 +345,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
-                    android:text="Twitterアカウント" />
+                    android:text="@string/twitter" />
 
             </androidx.cardview.widget.CardView>
 

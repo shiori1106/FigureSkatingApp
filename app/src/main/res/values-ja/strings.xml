@@ -23,11 +23,11 @@
     <string name="URL_twitter">https://twitter.com/bigfanofskating</string>
 
     <string name="gmail">kirakira.a.b.c.d.e@gmail.com</string>
-    <string name="gmail_subject">About Figure Skating Data</string> <!--English用 Figure Skating Dataについて-->
+    <string name="gmail_subject">Figure Skating Dataについて</string>
 
-    <string name="text_resultPage"> : Go to ISU official result site</string> <!--English用  : ISU公式リザルトページへ-->
-    <string name="text_video"> : Search videos on Youtube</string> <!--English用  : Youtubeで動画を検索-->
-    <string name="text_video2"> </string> <!--English用  （動画が見つからないこともあります）(Sometimes the video can"'"t be found)-->
+    <string name="text_resultPage"> : ISU公式リザルトページへ</string>
+    <string name="text_video"> : Youtubeで動画を検索</string>
+    <string name="text_video2"> （動画が見つからないこともあります）</string>
 
     <string name="aboutApp">
         Figure Skating Dataアプリをご利用いただきありがとうございます。\n本アプリで使用しているデータは独自で取得・蓄積したものです。\nデータの扱いには十分注意していますが、もし誤りがありましたらご指摘いただけると幸いです。
@@ -37,27 +37,26 @@
         Thank you for using the Figure Skating Data app. I collected the data used in this app by myself. I am careful in handling the data, but I would appreciate it if you could point out any mistakes. Also, I would appreciate it if you could tell me if my English is wrong.
     </string>
 
-    <string name="contact_email"> Contact　：　Email　</string> <!--English用  お問い合わせ先　：　Email-->
-    <string name="contact_twitter"> Contact　：　Twitter</string> <!--English用  お問い合わせ先　：　Twitter-->
+    <string name="contact_email"> お問い合わせ先　：　Email　</string>
+    <string name="contact_twitter"> お問い合わせ先　：　Twitter</string>
 
-    <string name="link">Links page</string>
+    <string name="link">リンク集</string>
     <string name="statistics">ISU　-　Statistics</string>
     <string name="results">ISU　-　Results</string>
     <string name="event">ISU　-　Calendar of Events</string>
     <string name="bio">ISU　-　Biographies</string>
     <string name="results_jsf">JSF　-　Official Results ＆ Data Site</string>
-    <string name="skaters">JSF　-　Skaters</string>
+    <string name="skaters">JSF　-　強化選手</string>
 
-    <string name="others">Others</string>
-    <string name="about">About App</string>
-    <string name="review">Write a review</string>
-    <string name="twitter">Twitter account</string>
+    <string name="others">その他</string>
+    <string name="about">アプリについて</string>
+    <string name="review">レビューを書く</string>
+    <string name="twitter">Twitterアカウント</string>
 
-    <string name="bottom1">By Season</string>
-    <string name="bottom2">By Competition</string>
-    <string name="bottom3">Others</string>
+    <string name="bottom1">シーズン別</string>
+    <string name="bottom2">試合別</string>
+    <string name="bottom3">その他</string>
 
-    <string name="web1">Copy link</string>
-    <string name="web2">Open in browser</string>
-
+    <string name="web1">リンクをコピー</string>
+    <string name="web2">ブラウザで開く</string>
 </resources>

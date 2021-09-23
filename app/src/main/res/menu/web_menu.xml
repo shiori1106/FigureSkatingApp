@@ -10,10 +10,10 @@
         <menu>
             <item
                 android:id="@+id/web1"
-                android:title="リンクをコピー"/>
+                android:title="@string/web1"/>
             <item
                 android:id="@+id/web2"
-                android:title="ブラウザで開く"/>
+                android:title="@string/web2"/>
 
         </menu>
 
