@@ -8,6 +8,9 @@ import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_result.*
@@ -15,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_result.*
 class ResultActivity : AppCompatActivity() {
 
     private val viewPagerAdapter by lazy { ViewPageAdapter(this) }
+    lateinit var mAdView : AdView
 
     // SeasonDetailActivityからCOMPETITION、SEASONをそれぞれ受け取るための変数を初期化
     var competitonFromSeasonDetail = ""
@@ -24,6 +28,13 @@ class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
+
+        // admob用
+        MobileAds.initialize(this){}
+        mAdView = adView
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
 
         // レイアウトのtoolbarをtoolbar要素を取得
         val toolbar = findViewById<Toolbar>(R.id.toolbar)

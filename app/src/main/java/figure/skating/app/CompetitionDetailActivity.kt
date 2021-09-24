@@ -4,17 +4,29 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_competition_detail.*
-import kotlinx.android.synthetic.main.activity_season_detail.*
+
 
 class CompetitionDetailActivity : AppCompatActivity() {
 
     private lateinit var mRealm: Realm
+    lateinit var mAdView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_competition_detail)
+
+        // admob用
+        MobileAds.initialize(this){}
+        mAdView = adView
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
+        // レイアウトのtoolbarをtool
 
         // レイアウトのtoolbarをtoolbar要素を取得
         val toolbar = findViewById<Toolbar>(R.id.toolbar)

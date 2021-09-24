@@ -16,13 +16,26 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.widget.Toolbar
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_web_view.*
+import kotlinx.android.synthetic.main.activity_web_view.adView
+import kotlinx.android.synthetic.main.fragment1.*
 
 class WebViewActivity : AppCompatActivity() {
+
+    lateinit var mAdView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web_view)
+
+        // admob用
+        MobileAds.initialize(this){}
+        mAdView = adView
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
 
         // レイアウトのtoolbarをtoolbar要素を取得
         val toolbar = findViewById<Toolbar>(R.id.toolbar)

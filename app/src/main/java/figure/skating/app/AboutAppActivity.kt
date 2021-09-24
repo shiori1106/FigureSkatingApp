@@ -5,13 +5,24 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_about_app.*
-import kotlinx.android.synthetic.main.fragment3.*
 
 class AboutAppActivity : AppCompatActivity() {
+
+    lateinit var mAdView : AdView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about_app)
+
+        // admob用
+        MobileAds.initialize(this){}
+        mAdView = adView
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
 
         // レイアウトのtoolbarをtoolbar要素を取得
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
