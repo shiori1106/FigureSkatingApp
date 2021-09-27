@@ -56,6 +56,9 @@
     <string name="bottom1">By Season</string>
     <string name="bottom2">By Competition</string>
     <string name="bottom3">Others</string>
+    <string name="bottom4">By Skater</string>
+
+    <string name="searchView">Search Skaters</string>
 
     <string name="web1">Copy link</string>
     <string name="web2">Open in browser</string>

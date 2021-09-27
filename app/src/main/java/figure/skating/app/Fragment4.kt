@@ -44,7 +44,13 @@ class Fragment4: Fragment()  {
                 val addNameList = addName.split(" ")
                 addName = addName.replace(addNameList[0],"").trim() + " " + addNameList[0]
             }
-            skaterRealmList.add(addName + "  (" + skaterRealmResults[i]!!.country + ")")
+
+            // FSRとOARはRUSに変換
+            var addCountry = skaterRealmResults[i]!!.country
+            if ((addCountry == "FSR")||(addCountry == "OAR")){
+                addCountry = "RUS"
+            }
+            skaterRealmList.add(addName + "  (" + addCountry + ")")
         }
 
         // 重複を削除し、並び替え

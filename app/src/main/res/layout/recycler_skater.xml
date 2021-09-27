@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view_result"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp">
@@ -28,84 +28,113 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-
-        <TextView
-            android:id="@+id/text_competition_short"
+        <!--
+        <ImageView
+            android:id="@+id/image_check"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_check_24"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="20dp"
-            android:text="GPF"
-            android:textSize="15sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
+            -->
 
         <TextView
             android:id="@+id/text_season"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="6dp"
-            android:text="/ 2017-2018"
-            android:textSize="15sp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:text="2017-2018"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/text_competition_short"/>
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/text_competition_short"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="6dp"
+            android:text="/ Jr World"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text_season"/>
+
+        <TextView
+            android:id="@+id/text_final_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="190dp"
+            android:text="　…　324.34"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/text_final_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="(1)"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text_final_score"/>
+
+
+
 
         <TextView
             android:id="@+id/text_sp_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="SP:110.34"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="60dp"
+            android:text="-SP:110.34"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_season"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
             android:id="@+id/text_sp_rank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:text="(1)"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_season"
             app:layout_constraintStart_toEndOf="@id/text_sp_score"/>
 
         <TextView
             android:id="@+id/text_fs_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="FS:210.34"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="60dp"
+            android:text="-FS:210.34"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/text_sp_rank"/>
+            app:layout_constraintTop_toBottomOf="@id/text_sp_score"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
             android:id="@+id/text_fs_rank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:paddingBottom="15dp"
             android:text="(2)"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_sp_score"
             app:layout_constraintStart_toEndOf="@id/text_fs_score"/>
 
-        <TextView
-            android:id="@+id/text_final_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="FS:324.34"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/text_fs_rank"/>
 
-        <TextView
-            android:id="@+id/text_final_rank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="(1)"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/text_final_score"/>
 
 
 

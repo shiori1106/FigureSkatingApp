@@ -56,6 +56,9 @@
     <string name="bottom1">シーズン別</string>
     <string name="bottom2">試合別</string>
     <string name="bottom3">その他</string>
+    <string name="bottom4">選手別</string>
+
+    <string name="searchView">選手を検索</string>
 
     <string name="web1">リンクをコピー</string>
     <string name="web2">ブラウザで開く</string>

@@ -3,6 +3,7 @@ package figure.skating.app
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.ads.AdRequest
@@ -96,8 +97,17 @@ class ResultSkaterActivity : AppCompatActivity() {
                 .equalTo(ResultData::competition.name, skaterRealmResults_sp[i]!!.competition)
                 .findFirst()
 
-            val skaterRealmResults_fs_score = mRealm.copyFromRealm(skaterRealmResults_fs)!!.score
-            val skaterRealmResults_fs_rank = mRealm.copyFromRealm(skaterRealmResults_fs)!!.rank
+            // FSがない場合は0を格納
+            var skaterRealmResults_fs_score = 0.0
+            if ((skaterRealmResults_fs != null) && (skaterRealmResults_fs.score != null)){
+                skaterRealmResults_fs_score = mRealm.copyFromRealm(skaterRealmResults_fs)!!.score
+            }
+
+            var skaterRealmResults_fs_rank = 0
+            if ((skaterRealmResults_fs != null) && (skaterRealmResults_fs.rank != null)){
+                skaterRealmResults_fs_rank = mRealm.copyFromRealm(skaterRealmResults_fs)!!.rank
+            }
+
 
             // FINALの結果を格納
             val skaterRealmResults_final = mRealm.where(ResultData::class.java)
@@ -109,8 +119,18 @@ class ResultSkaterActivity : AppCompatActivity() {
                 .equalTo(ResultData::competition.name, skaterRealmResults_sp[i]!!.competition)
                 .findFirst()
 
-            val skaterRealmResults_final_score = mRealm.copyFromRealm(skaterRealmResults_final)!!.score
-            val skaterRealmResults_final_rank = mRealm.copyFromRealm(skaterRealmResults_final)!!.rank
+            // FINALがない場合は0を格納
+            var skaterRealmResults_final_score = 0.0
+            if ((skaterRealmResults_final != null) && (skaterRealmResults_final.score != null)){
+                skaterRealmResults_final_score = mRealm.copyFromRealm(skaterRealmResults_final)!!.score
+            }
+
+            var skaterRealmResults_final_rank = 0
+            if ((skaterRealmResults_final != null) && (skaterRealmResults_final.rank != null)){
+                skaterRealmResults_final_rank = mRealm.copyFromRealm(skaterRealmResults_final)!!.rank
+            }
+            //val skaterRealmResults_final_score = mRealm.copyFromRealm(skaterRealmResults_final)!!.score?:0.0
+            //val skaterRealmResults_final_rank = mRealm.copyFromRealm(skaterRealmResults_final)!!.rank ?:0
 
             skaterRealmList.add(SkaterData(skaterRealmResults_sp[i]!!.competition,
                                             skaterRealmResults_sp[i]!!.competition_short,

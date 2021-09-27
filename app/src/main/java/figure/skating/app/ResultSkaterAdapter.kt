@@ -26,14 +26,23 @@ class ResultSkaterAdapter(private val context: Context): RecyclerView.Adapter<Re
         val item = skaterList.get(position)
 
         holder.apply {
-            text_competition_short.text = item.skater_competition_short
-            text_season.text = "/ " + item.skater_season
-            text_sp_score.text = "SP:" + String.format("%,.2f", item.sp_score)
-            text_sp_rank.text = "(" + item.sp_rank + ")"
-            text_fs_score.text = "FS:" + String.format("%,.2f", item.fs_score)
-            text_fs_rank.text = "(" + item.fs_rank + ")"
-            text_final_score.text = "FINAL:" + String.format("%,.2f", item.final_score)
-            text_final_rank.text = "(" + item.final_rank + ")"
+            text_competition_short.text = "/ " + item.skater_competition_short
+            text_season.text = item.skater_season
+            text_sp_score.text = "-SP:" + String.format("%,.2f", item.sp_score)
+            text_sp_rank.text = " (" + item.sp_rank + ")"
+            if(item.fs_score == 0.0){
+                text_fs_score.text = ""
+                text_fs_rank.text = "-FS:--"
+                text_final_score.text = ""
+                text_final_rank.text = "　…　--"
+            } else {
+                text_fs_score.text = "-FS:" + String.format("%,.2f", item.fs_score)
+                text_fs_rank.text = " (" + item.fs_rank + ")"
+                text_final_score.text = "　…　" + String.format("%,.2f", item.final_score)
+                //text_final_score.text = "-FINAL:" + String.format("%,.2f", item.final_score)
+                text_final_rank.text = " (" + item.final_rank + ")"
+            }
+
         }
     }
 
