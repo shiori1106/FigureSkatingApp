@@ -2,11 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="figure.skating.app">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <!-- admob用 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- admob用 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -17,21 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FigureSkatingApp"
         android:usesCleartextTraffic="true">
-
-        <!--テスト　ca-app-pub-3940256099942544~3347511713-->
-        <!--本番　ca-app-pub-3697350430303186~2853746789-->
-
+        <activity android:name=".ResultSkaterActivity"></activity>
+        <!-- テスト　ca-app-pub-3940256099942544~3347511713 -->
+        <!-- 本番　ca-app-pub-3697350430303186~2853746789 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3697350430303186~2853746789"/>
+            android:value="ca-app-pub-3697350430303186~2853746789" />
 
-
-        <activity android:name=".CompetitionDetailActivity"/>
+        <activity android:name=".CompetitionDetailActivity" />
         <activity android:name=".AboutAppActivity" />
         <activity android:name=".ResultActivity" /> <!-- android:parentActivityName=".SeasonDetailActivity"/> -->
         <activity android:name=".WebViewActivity" />
         <activity android:name=".SeasonDetailActivity" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

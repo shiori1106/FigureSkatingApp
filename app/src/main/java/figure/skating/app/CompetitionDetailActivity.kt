@@ -26,8 +26,6 @@ class CompetitionDetailActivity : AppCompatActivity() {
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
 
-        // レイアウトのtoolbarをtool
-
         // レイアウトのtoolbarをtoolbar要素を取得
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
 

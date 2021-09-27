@@ -17,10 +17,16 @@
         android:tag="tab2"/>
 
     <custom_fragment
-    android:id="@+id/tab3"
-    android:name="figure.skating.app.Fragment3"
-    android:label="tab3"
-    android:tag="tab3"/>
+        android:id="@+id/tab4"
+        android:name="figure.skating.app.Fragment4"
+        android:label="tab4"
+        android:tag="tab4"/>
+
+    <custom_fragment
+        android:id="@+id/tab3"
+        android:name="figure.skating.app.Fragment3"
+        android:label="tab3"
+        android:tag="tab3"/>
 
 
 </navigation>

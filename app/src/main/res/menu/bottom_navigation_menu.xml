@@ -9,6 +9,12 @@
         android:icon="@drawable/ic_baseline_tour_24"
         android:title="@string/bottom2"/>
 
+    <!-- 仮 -->
+    <item
+        android:id="@+id/tab4"
+        android:icon="@drawable/ic_baseline_tour_24"
+        android:title="By Skater"/>
+
     <item
         android:id="@+id/tab3"
         android:icon="@drawable/ic_baseline_more_horiz_24"
